@@ -1,0 +1,14 @@
+#A program to find number of factors
+
+def factors(num):
+    i = 1
+    factor = 0
+    while (i <= num):
+        if(num % i == 0):
+            factor+= 1
+        i+= 1
+    return factor
+
+num = int(input("Enter a number"))
+print("no of factors:")
+print(factors(num))

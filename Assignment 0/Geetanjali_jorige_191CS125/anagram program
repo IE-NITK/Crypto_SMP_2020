@@ -1,0 +1,45 @@
+list1 = ['a' ,'b' ,'c','d' ,'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'q', 'u', 'v', 'w','x', 'y', 'z']
+dic = { }
+
+def is_prime(num):
+    factors = 0
+    i = 1
+    while i <=num:
+        if num%i == 0 :
+            factors+= 1
+        i+= 1
+    if factors == 2:
+        return True
+    else:
+        return False
+
+
+def prime_generation(list1):
+    count = 2
+    index=0
+    genarated = 0
+    while genarated <= 26:
+        if(is_prime(count)):
+            genarated+= 1
+            k=list1[index]
+            dic[k] = count
+            index+= 1
+        count+= 1
+        
+
+def anagram(str1, str2):
+    prime_generation(list1)
+    product1 = 1
+    product2 = 1
+    for x  in str1:
+        product1 = product1 * dic[x]
+    for x in str2:
+        product2 = product2 * dic[x]
+    if(product1 == product2):
+        print("The two strings are anagram!")
+    else:
+        print("The two strings are not anagram!")
+        
+str1 = input("Enter your string1 in lowercase : ")
+str2 = input("Enter your string2 in lowercase : ")
+anagram(str1, str2)
